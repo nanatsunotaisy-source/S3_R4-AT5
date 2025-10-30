@@ -1,8 +1,20 @@
 [
     {
-      "titulo": "a fuga dos mamacos",
-      "autor": "cauã",
-      "ano": 1945,
-      "estoque": 1
+        "titulo": "a fuga dos mamacos",
+        "autor": "cauã",
+        "ano": 1945,
+        "estoque": 1
+    },
+    {
+        "titulo": "rambo",
+        "autor": "lucas",
+        "ano": 1990,
+        "estoque": 10000
+    },
+    {
+        "titulo": "one piece",
+        "autor": "miguel",
+        "ano": 2000,
+        "estoque": 1000
     }
 ]
