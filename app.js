@@ -31,6 +31,38 @@ app.post("/livros", (req, res)=>{
     }
 });
 
+app.get("/consultarLivro", (req, res)=>{
+    try {
+        const data = fs.readFileSync(pathFile, "utf-8");
+        
+        let livros = JSON.parse(data);
+
+        res.status(200).json(livros);
+    } catch (error) {
+        console.error("erro ao exibir livros:",error);
+        res.status(500).json({error: "erro interno no servidor ao exibir os livro!"});
+    }
+});
+
+app.get("/filtrarLivros", (req, res)=>{
+    try {
+         const data = fs.readFileSync(pathFile, "utf-8");
+        
+        let livros = JSON.parse(data);
+
+        const {pesquise} = req.query;
+
+        if(pesquise){
+            livros = livros.filter(livro => livro.titulo.toLowerCase().includes(pesquise.toLowerCase()));
+        }
+
+        res.status(200).json(livros);
+    } catch (error) {
+        console.error("erro ao filtar livros:",error);
+        res.status(500).json({error: "erro interno no servidor ao filtrar os livro!"});
+    }
+});
+
 app.listen(PORT, ()=>{
 console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
